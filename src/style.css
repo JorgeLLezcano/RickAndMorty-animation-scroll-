@@ -1,0 +1,150 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, sans-serif;
+  color: black;
+  position: relative;
+}
+.contenedor-prin {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  position: relative;
+  width: 100vw;
+}
+.conteiner {
+  background-image: url('./assets/dust_texture.png');
+  background-position: center;
+  width: 100vw;
+  height: auto;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+  /* grid-template-rows: 300px 1fr; */
+  gap: 10px;
+  position: absolute;
+}
+h1 {
+  padding: 10px;
+  text-shadow: 0 0 5px white;
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: #0997ab;
+}
+h2 {
+  text-shadow: 0 0 15px white;
+}
+.title {
+  background-color: green;
+  height: 50px;
+  top: 00px;
+  margin: 0%;
+  overflow: hidden;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  border: none;
+  z-index: 1;
+  box-shadow: 0 0 15px 8px rgb(240, 236, 38);
+  animation: progres 2s both;
+  animation-timeline: scroll(root);
+  animation-range: 10 100px;
+}
+
+@keyframes progres {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+    background: rgba(30 157 34 / 71%);
+    backdrop-filter: blur(5px);
+  }
+}
+
+.img-personajes img {
+  border-radius: 50%;
+  box-shadow: 0 0 15px 8px rgb(240, 236, 38);
+}
+.img-personajes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: revel 2s both;
+  flex-direction: column;
+  animation-timeline: view();
+  animation-range: entry 30% cover 70%;
+}
+
+@keyframes revel {
+  from {
+    opacity: 0;
+    clip-path: ellipse(25% 49% at 50% 50%);
+    scale: 0.1;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.status {
+  height: auto;
+  width: auto;
+  color: red;
+  opacity: 0;
+  position: absolute;
+  transition: opacity 0.2s ease-in-out;
+  transform: rotate(-50deg);
+  border: solid red;
+  font-size: 30px;
+  text-align: center;
+  right: 80px;
+}
+.img-personajes:hover .status {
+  opacity: 1; /* Mostrar cuando se hace hover */
+}
+
+.especificaciones {
+  border: solid;
+  height: auto;
+  width: 0px;
+  transition: width 0.3s ease;
+  opacity: 0;
+  color: white;
+  background: rgb(97, 209, 250);
+  box-shadow: 0 0 12px 3px white;
+  margin-top: 10px;
+}
+.species {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.img-personajes:hover .species {
+  opacity: 1; /* Mostrar cuando se hace hover */
+}
+.origins {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.img-personajes:hover .origins {
+  opacity: 1; /* Mostrar cuando se hace hover */
+}
+.img-personajes:hover .especificaciones {
+  width: 150px;
+  opacity: 1;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
